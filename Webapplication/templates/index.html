@@ -15,9 +15,8 @@
     />
 
     <style>
-      
       @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-      *{
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -129,6 +128,19 @@
         font-size: 1.5em;
         margin-top: 20px;
       }
+
+      #model-select {
+        text-decoration: none;
+        color: inherit;
+        background-color: #310c55;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
     </style>
   </head>
   <body>
@@ -141,19 +153,96 @@
       </ul>
     </nav>
     <div class="container">
-      <h1>Text Classification - DatasetV8 - Random Forest </h1>
+      <h1>Text Classification - DatasetV8</h1>
+      <form
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+        class="upload-form"
+      >
+        <label for="file" class="upload-label" style="width: 100%">
+          <input
+            type="file"
+            name="file"
+            accept=".pdf"
+            id="file"
+            class="upload-input"
+          />
+          <div class="upload-button">
+            <i class="fas fa-upload"></i>
+            <span>Upload PDF</span>
+          </div>
+        </label>
+      </form>
+      <style>
+        .upload-form {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px;
+        }
+
+        .upload-label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          background-color: #a12568;
+          border-radius: 5px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          margin-bottom: 20px;
+          transition: background-color 0.3s;
+          width: 100%;
+        }
+
+        .upload-label:hover {
+          background-color: #fcb035;
+        color: #a12568;
+        }
+
+        .upload-input {
+          display: none;
+        }
+
+        .upload-button {
+          display: flex;
+          align-items: center;
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+
+        .upload-button i {
+          margin-right: 10px;
+        }
+      </style>
+
+      <select
+        id="model-select"
+        style="width: 100%; padding: 10px; font-size: 1em; margin-bottom: 20px"
+      >
+        <option value="random_forest">Random Forest</option>
+        <option value="gbm">GBM</option>
+        <option value="svm">Support Vector Machine</option>
+      </select>
       <form>
         <textarea id="text" placeholder="Enter text here"></textarea>
         <button type="button" onclick="predict()">Predict</button>
       </form>
       <div id="prediction"></div>
     </div>
-    <div style="position: fixed; bottom: 0; width: 100%; text-align: center; color: #d8ba326c; background-color: #2a094400; padding: 3vh">
-      <p style="white-space: nowrap;">Created by Thesis Group</p>
-      <p style="white-space: nowrap;">Nafi Sarkar &amp; Peya Pandit</p>
+    <div
+      style="
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #e6bf13da;
+        background-color: #2a094400;
+        padding: 3vh;
+      "
+    >
+      <p style="white-space: nowrap">Created by Thesis Group</p>
+      <p style="white-space: nowrap">Nafi Sarkar &amp; Peya Pandit</p>
     </div>
-
   </body>
 </html>
-
-

@@ -86,7 +86,6 @@ import joblib
 # save the model
 joblib.dump(classifier, 'model.pkl')
 joblib.dump(vectorizer, 'vectorizer.pkl')
-joblib.dump(transformer, 'transformer.pkl')
 
 
 # input the text to predict
