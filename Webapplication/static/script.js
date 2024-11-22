@@ -1,7 +1,39 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.upload-form');
+    const fileInput = document.querySelector('.upload-input');
+    
+    fileInput.addEventListener('change', function() {
+        const fileName = this.files[0]?.name;
+        if (fileName) {
+            this.closest('label').querySelector('span').textContent = fileName;
+        }
+    });
 
-document.getElementById('file').addEventListener('change', function(event) {
-    var filePath = event.target.value;
-    console.log('Selected PDF path:', filePath);
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert(data.message);
+                // Reset the form
+                form.reset();
+                document.querySelector('.upload-button span').textContent = 'Choose PDF';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Upload failed. Please try again.');
+        });
+    });
 });
 
 function predict() {
@@ -19,7 +51,6 @@ function predict() {
     else if(model === 'svm') {
         Accuracy = 73;
     }
-
 
     if (text === '') {
         document.getElementById('prediction').innerHTML = 'Please enter some text.';
@@ -47,7 +78,7 @@ function predict() {
         console.log(category);
         if(model === 'random_forest') {
             document.getElementById('prediction').innerHTML = category.toString().toUpperCase() + " - ACCURACY " + Accuracy + " %";
-        }else{
+        } else {
             document.getElementById('prediction').innerHTML = category.toUpperCase() + " - ACCURACY " + Accuracy + " %";
         }
     })
@@ -59,6 +90,3 @@ function predict() {
         }
     });
 }
-
-
-
