@@ -35,35 +35,35 @@ Genre Classification of Books — a sophisticated automated system designed to c
 
 ### Key Features
 
-| Feature | Description |
-|---|---|
-| Contextual Intelligence | Analyzes the first and last 20 pages of a book to capture essential thematic introduction and conclusion. |
-| Hybrid Data Sourcing | Processes born-digital PDFs and physical books via custom OCR integration (image capture → OCR → cleanup). |
-| Multi-Model Architecture | Evaluates algorithms from traditional SVMs and Random Forests up to Transformer-based models (BERT). |
-| End-to-End Pipeline | Automated text cleaning (noise reduction, stopword removal, normalization) and feature extraction using TF‑IDF or embeddings. |
-| Web-Ready Interface | Flask-based dashboard for realtime PDF uploads and genre prediction (see `Webapplication/`). |
+| Feature                  | Description                                                                                                                   |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Contextual Intelligence  | Analyzes the first and last 20 pages of a book to capture essential thematic introduction and conclusion.                     |
+| Hybrid Data Sourcing     | Processes born-digital PDFs and physical books via custom OCR integration (image capture → OCR → cleanup).                    |
+| Multi-Model Architecture | Evaluates algorithms from traditional SVMs and Random Forests up to Transformer-based models (BERT).                          |
+| End-to-End Pipeline      | Automated text cleaning (noise reduction, stopword removal, normalization) and feature extraction using TF‑IDF or embeddings. |
+| Web-Ready Interface      | Flask-based dashboard for realtime PDF uploads and genre prediction (see `Webapplication/`).                                  |
 
 ### Tech stack
 
-| Category | Tools & Technologies |
-|---|---|
-| Languages | Python 3.10 |
+| Category           | Tools & Technologies                     |
+| ------------------ | ---------------------------------------- |
+| Languages          | Python 3.10                              |
 | ML / DL Frameworks | TensorFlow, Keras, Scikit-learn, PyTorch |
-| Preprocessing | OpenCV, Fitz (PyMuPDF), NLTK |
-| Web Backend | Flask |
-| Infrastructure | Google Colab (TPU Runtime), MiniConda |
+| Preprocessing      | OpenCV, Fitz (PyMuPDF), NLTK             |
+| Web Backend        | Flask                                    |
+| Infrastructure     | Google Colab (TPU Runtime), MiniConda    |
 
 ### Performance benchmark (example)
 
 Trained on ~600 books across 6 genres (Horror, Mystery, Thriller, Comedy, Romance, Fiction):
 
-| Model | Accuracy | Notes |
-|---|---:|---|
-| BERT (Transformer) | 75% | Best balance of performance and robustness |
-| SVM | 73% | Stable with smaller feature sets |
-| Random Forest | 72% | Good baseline performance |
-| Gradient Boosting (GBM) | 70% | Competitive with RF, slower to train |
-| RNN | 57% | Struggles with long-range dependencies and large corpora |
+| Model                   | Accuracy | Notes                                                    |
+| ----------------------- | -------: | -------------------------------------------------------- |
+| BERT (Transformer)      |      75% | Best balance of performance and robustness               |
+| SVM                     |      73% | Stable with smaller feature sets                         |
+| Random Forest           |      72% | Good baseline performance                                |
+| Gradient Boosting (GBM) |      70% | Competitive with RF, slower to train                     |
+| RNN                     |      57% | Struggles with long-range dependencies and large corpora |
 
 These are experimental results — re-train and validate on your data for reproducible metrics.
 
@@ -83,19 +83,17 @@ These are experimental results — re-train and validate on your data for reprod
 
 ### Project team
 
-| Name | Role / Affiliation |
-|---|---|
-| Shaon An Nafi | DIU — CSE Graduate |
-| Peya Pandit | DIU — CSE Graduate |
-| Department | Computer Science and Engineering, Daffodil International University |
+| Name          | Role / Affiliation                                                  |
+| ------------- | ------------------------------------------------------------------- |
+| Shaon An Nafi | DIU — CSE Graduate                                                  |
+| Peya Pandit   | DIU — CSE Graduate                                                  |
+| Department    | Computer Science and Engineering, Daffodil International University |
 
 ## Highlights
 
 - Multiple model implementations: classical ML (Random Forest, SVM, GBM, Naive Bayes, kNN) and neural nets (CNN, RNN).
 - Lightweight Flask demo to test inference locally.
 - Notebook-driven exploration in `Multiclass_Text_Classification.ipynb`.
-
-
 
 ## Quickstart
 
